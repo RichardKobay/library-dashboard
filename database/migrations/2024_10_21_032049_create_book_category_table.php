@@ -1,11 +1,8 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 return new class extends Migration
 {
@@ -14,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $role_1 = Role::create(['name' => 'admin']);
-        $role_2 = Role::create(['name' => 'user']);
-//        $user = User::find(1);
-//        $user->assignRole($role_1);
+        Schema::create('book_category', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('book_id');
+            $table->unsignedBigInteger('category_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('book_category');
     }
 };

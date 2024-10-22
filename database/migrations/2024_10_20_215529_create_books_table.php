@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('amount')->default(0);
-            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('type_id');
             $table->text('description');
             $table->string('ISBN', 20)->unique()->nullable();
-            $table->unsignedBigInteger('author_id');
-            $table->year('publication_year');
+            $table->unsignedMediumInteger('publication_year')->nullable();
             $table->timestamps();
         });
     }

@@ -1,11 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('My loans') }}
+            {{ __('Books') }}
         </h2>
     </x-slot>
 
     <div class="flex justify-center items-center mt-12 flex-col">
+        <div>
+            <a href="{{ route('dashboard.admin.loans.create') }}">
+                <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Add Loan</button>
+            </a>
+        </div>
+
         <div class="max-w-7xl">
             @if($loans->isEmpty())
                 <h3>No loans to show</h3>
@@ -16,6 +22,9 @@
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Book
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                User
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Date
@@ -38,6 +47,9 @@
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ optional($loan->book)->name }}
                                 </th>
+                                <td class="px-6 py-4">
+                                    {{ optional($loan->user)->name }}
+                                </td>
                                 <td class="px-6 py-4">
                                     {{ $loan->date }}
                                 </td>
@@ -71,7 +83,9 @@
                                     </div>
                                     @endrole
                                     @role('user')
-                                        Nothing to show
+                                    <div>
+                                        You're a user
+                                    </div>
                                     @endrole
                                 </td>
                             </tr>

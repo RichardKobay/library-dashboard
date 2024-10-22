@@ -16,13 +16,13 @@
                         <x-nav-link href="{{ route('dashboard.books') }}" :active="request()->routeIs('dashboard.books')">
                             Books
                         </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.loans') }}" :active="request()->routeIs('dashboard.loans')">
+                        <x-nav-link href="{{ route('dashboard.admin.loans') }}" :active="request()->routeIs('dashboard.loans')">
                             Loans
                         </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.reservations') }}" :active="request()->routeIs('dashboard.reservations')">
+                        <x-nav-link href="{{ route('dashboard.admin.reservations') }}" :active="request()->routeIs('dashboard.reservations')">
                             Reservations
                         </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.reservations') }}" :active="request()->routeIs('dashboard.reservations')">
+                        <x-nav-link href="{{ route('dashboard.admin.users') }}" :active="request()->routeIs('dashboard.reservations')">
                             User management
                         </x-nav-link>
                     </div>
