@@ -15,6 +15,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    Route::get('/test', function () {
+        return view('test-view');
+    });
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -81,7 +85,7 @@ Route::middleware([
         'edit'
     ])->name('dashboard.admin.loans.edit');
 
-    Route::put('/dashboard/books/update/{id}', [
+    Route::put('/dashboard/loans/update/{id}', [
         LoanController::class,
         'update'
     ])->name('dashboard.admin.loans.update');
@@ -161,8 +165,3 @@ Route::middleware([
         'myReservations'
     ])->name('dashboard.my-reservations');
 });
-
-Route::put('/dashboard/books/update/{id}', [
-    BookController::class,
-    'update'
-])->name('dashboard.books.memo');

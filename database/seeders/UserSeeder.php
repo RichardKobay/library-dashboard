@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             ['id' => 6, 'email' => 'yuki.tanaka@example.com', 'phone_number' => '+819012345678', 'password' => bcrypt('YukiPass123'), 'name' => 'Yuki Tanaka'],
             ['id' => 7, 'email' => 'fatima.khan@example.com', 'phone_number' => '+923001234567', 'password' => bcrypt('FatimaK123'), 'name' => 'Fatima Khan'],
             ['id' => 8, 'email' => 'li.wei@example.com', 'phone_number' => '+8613812345678', 'password' => bcrypt('LiWei789'), 'name' => 'Li Wei'],
-            ['id' => 9, 'email' => 'pierre.martin@example.com', 'phone_number' => '+331234567890', 'password' => bcrypt('PierreM123'), 'name' => 'Pierre Martin'],
+            ['id' => 9, 'email' => 'pierre.martin@example.com', 'phone_number' => '+331234567890', 'password' => bcrypt(value: 'PierreM123'), 'name' => 'Pierre Martin'],
             ['id' => 10, 'email' => 'sofia.rossi@example.com', 'phone_number' => '+393456789012', 'password' => bcrypt('SofiaR456'), 'name' => 'Sofia Rossi'],
         ]);
     }

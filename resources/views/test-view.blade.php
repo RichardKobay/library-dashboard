@@ -1,2 +1,1 @@
-{{ $note }}
-<p>id: {{ $id }}</p>
+{{ route('dashboard.books') }}

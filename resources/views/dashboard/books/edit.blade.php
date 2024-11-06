@@ -8,7 +8,7 @@
     <div class="flex justify-center items-center mt-12 flex-col">
         <div
             class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-w-16">
-            <form method="POST" action="{{ route('dashboard.books.memo', $book->id) }}" class="max-w-sm mx-auto min-w-12">
+            <form method="POST" action="{{ route('dashboard.books.update', $book->id) }}" class="max-w-sm mx-auto min-w-12">
                 @method('put')
                 @csrf
                 <div class="mb-5">

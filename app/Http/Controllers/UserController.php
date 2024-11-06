@@ -9,8 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('dashboard.admin.users.index', compact('users'));
+        return view('dashboard.admin.users.index');
     }
 
     public function makeAdmin($id)
