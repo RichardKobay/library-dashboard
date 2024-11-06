@@ -17,6 +17,7 @@ class BooksTable extends Component
         $books = Book::with(['categories', 'authors', 'type'])
             ->where('name', 'like', '%' . $this->search . '%')
             ->orWhere('ISBN', 'like', '%' . $this->search . '%')
+            ->orWhere('publication_year', 'like', '%' . $this->search . '%')
             ->orWhereHas('categories', function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })->orWhereHas('authors', function ($query) {
@@ -24,6 +25,7 @@ class BooksTable extends Component
             })->orWhereHas('type', function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })->paginate(10);
+        
         return view('livewire.books.books-table', compact('books'));
     }
 }

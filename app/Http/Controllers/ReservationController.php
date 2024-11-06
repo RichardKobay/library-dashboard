@@ -30,7 +30,6 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-
         $user_id = $request->input('user_id');
         $book_id = $request->input('book_id');
         $date = $request->input('date');

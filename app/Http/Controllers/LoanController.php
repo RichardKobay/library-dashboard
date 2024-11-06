@@ -12,8 +12,7 @@ class LoanController extends Controller
 {
     public function index()
     {
-        $loans = Loan::all();
-        return view('dashboard.admin.loans.index', compact('loans'));
+        return view('dashboard.admin.loans.index');
     }
 
     public function loan($id)
