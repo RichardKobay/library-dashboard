@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
         $user_02->assignRole('user');
 
         $user_02 = User::find(4);
-        $user_02->assignRole('library-man');
+        $user_02->assignRole('librarian');
 
         for ($i = 4; $i <= 10; $i++) {
             $user = User::find($i);

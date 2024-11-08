@@ -1,5 +1,5 @@
-<div>
-    <div class="flex flex-col items-center justify-center p-12 pb-16">
+<div class="">
+    <div class="flex flex-col items-center justify-center p-16">
         @role('admin')
         <div>
             <a href="{{ route('dashboard.books.create') }}">
@@ -17,11 +17,11 @@
                    placeholder="Search by Name, ISBN, Author, etc." required/>
         </div>
 
-        <div class="max-w-7xl">
+        <div class="w-full overflow-x-auto rounded">
             @if($books->isEmpty())
                 <p class="text-2xl text-gray-900 dark:text-white">No books to show</p>
             @else
-                <div class="relative overflow-x-auto rounded">
+                <div class="relative rounded">
                     <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>

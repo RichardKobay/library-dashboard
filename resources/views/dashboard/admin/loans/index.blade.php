@@ -18,6 +18,16 @@
     </script>
 @endif
 
+@if(Session::has('returned'))
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "Book returned successfully",
+            icon: "success"
+        });
+    </script>
+@endif
+
 @if(Session::has('deleted'))
     <script>
         Swal.fire({

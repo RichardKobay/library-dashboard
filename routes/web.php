@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('dashboard'));
 });
 
 Route::middleware([
@@ -65,6 +65,10 @@ Route::middleware([
             LoanController::class,
             'destroy'
         ])->name('dashboard.admin.loans.destroy');
+        Route::post('/dashboard/loans/return/{id}', [
+            LoanController::class,
+            'return'
+        ])->name('dashboard.admin.loans.return');
 
         // User management
         Route::get('/dashboard/users', [

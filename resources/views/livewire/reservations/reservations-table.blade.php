@@ -15,7 +15,7 @@
                    placeholder="Search by user, book or date" required/>
         </div>
 
-        <div class="max-w-7xl">
+        <div class="w-full overflow-x-auto rounded">
             @if($reservations->isEmpty())
                 <p class="text-2xl text-gray-900 dark:text-white">No reservations to show</p>
             @else

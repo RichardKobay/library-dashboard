@@ -87,6 +87,21 @@ class LoanController extends Controller
         return redirect(route('dashboard.admin.loans'))->with('deleted', 'success');
     }
 
+    public function return($id)
+    {
+        $loan = Loan::find($id);
+        $bookId = $loan->book_id;
+        $book = Book::find($bookId);
+
+        $book->amount++;
+        $book->save();
+        $loan->return_date = Carbon::now();
+        $loan->status = 'returned';
+        $loan->save();
+
+        return redirect(route('dashboard.admin.loans'))->with('returned', 'success');
+    }
+
     public function make($userId, $bookId)
     {
 

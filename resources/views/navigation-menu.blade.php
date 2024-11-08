@@ -12,34 +12,39 @@
 
                 <!-- Navigation Links -->
                 @role('admin')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('dashboard.books') }}" :active="request()->routeIs('dashboard.books')">
-                            Books
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.admin.loans') }}" :active="request()->routeIs('dashboard.loans')">
-                            Loans
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.admin.reservations') }}" :active="request()->routeIs('dashboard.reservations')">
-                            Reservations
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.admin.users') }}" :active="request()->routeIs('dashboard.reservations')">
-                            User management
-                        </x-nav-link>
-                    </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('dashboard.books') }}" :active="request()->routeIs('dashboard.books')">
+                        Books
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.admin.loans') }}"
+                                :active="request()->routeIs('dashboard.loans')">
+                        Loans
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.admin.reservations') }}"
+                                :active="request()->routeIs('dashboard.reservations')">
+                        Reservations
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.admin.users') }}"
+                                :active="request()->routeIs('dashboard.reservations')">
+                        User management
+                    </x-nav-link>
+                </div>
                 @endrole
 
                 @role('user')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('dashboard.books') }}" :active="request()->routeIs('dashboard.books')">
-                            Books
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.my-loans') }}" :active="request()->routeIs('dashboard.my-loans')">
-                            My loans
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('dashboard.my-reservations') }}" :active="request()->routeIs('dashboard.my-reservations')">
-                            My reservations
-                        </x-nav-link>
-                    </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('dashboard.books') }}" :active="request()->routeIs('dashboard.books')">
+                        Books
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.my-loans') }}"
+                                :active="request()->routeIs('dashboard.my-loans')">
+                        My loans
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.my-reservations') }}"
+                                :active="request()->routeIs('dashboard.my-reservations')">
+                        My reservations
+                    </x-nav-link>
+                </div>
                 @endrole
             </div>
 
@@ -105,7 +110,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                     <img class="h-8 w-8 rounded-full object-cover"
                                          src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
                                 </button>
@@ -202,14 +207,6 @@
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-responsive-nav-link href="{{ route('api-tokens.index') }}"
-                                           :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-responsive-nav-link>
-                @endif
-
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
@@ -219,6 +216,26 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+
+                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                    <x-responsive-nav-link href="{{ route('api-tokens.index') }}"
+                                           :active="request()->routeIs('api-tokens.index')">
+                        {{ __('API Tokens') }}
+                    </x-responsive-nav-link>
+                @endif
+
+                @role('user')
+                <x-responsive-nav-link href="{{ route('dashboard.books') }}"
+                                       :active="request()->routeIs('profile.show')">
+                    {{ __('Books') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('dashboard.my-loans') }}">
+                    {{ __('My loans') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('dashboard.my-reservations') }}">
+                    {{ __('My Reservations') }}
+                </x-responsive-nav-link>
+                @endrole
 
                 <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

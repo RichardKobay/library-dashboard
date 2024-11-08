@@ -12,7 +12,7 @@
                    placeholder="Search by user, book, date or status" required/>
         </div>
 
-        <div class="max-w-7xl">
+        <div class="w-full overflow-x-auto rounded">
             @if($loans->isEmpty())
                 <p class="text-2xl text-gray-900 dark:text-white">No loans to show</p>
             @else
@@ -78,6 +78,13 @@
                                             <button type="submit"
                                                     class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                                                 Delete
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('dashboard.admin.loans.return', $loan->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                Return
                                             </button>
                                         </form>
                                     </div>
