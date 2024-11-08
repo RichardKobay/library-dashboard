@@ -12,6 +12,37 @@ class UserController extends Controller
         return view('dashboard.admin.users.index');
     }
 
+    public function user($id)
+    {
+        $user = User::find($id);
+        return view ('dashboard.admin.users.user', compact('user'));
+    }
+
+    public function create()
+    {
+
+    }
+
+    public function store(Request $request)
+    {
+
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update(Request $request, $id)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+
+    }
+
     public function makeAdmin($id)
     {
         User::find($id)->assignRole('admin');

@@ -12,7 +12,7 @@
     <script>
         Swal.fire({
             title: "Success",
-            text: "Loan created successfully",
+            text: "Reservation created successfully",
             icon: "success"
         });
     </script>
@@ -22,7 +22,7 @@
     <script>
         Swal.fire({
             title: "Success",
-            text: "Loan deleted successfully",
+            text: "Reservation deleted successfully",
             icon: "success"
         });
     </script>

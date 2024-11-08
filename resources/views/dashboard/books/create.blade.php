@@ -16,6 +16,9 @@
                     <input type="text" id="text"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="Book Title" name="name" required/>
+                    @error('name')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of
@@ -23,6 +26,9 @@
                     <input type="number" id="amount" name="amount"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="0" required/>
+                    @error('amount')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <div>
@@ -35,8 +41,14 @@
                             @empty
                             @endforelse
                         </select>
+                        @error('type')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                         <a>
-                            <button type="button" class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">New Type</button>
+                            <button type="button"
+                                    class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                New Type
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -51,8 +63,14 @@
                             @empty
                             @endforelse
                         </select>
+                        @error('category')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                         <a>
-                            <button type="button" class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">New Category</button>
+                            <button type="button"
+                                    class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                New Category
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -67,8 +85,14 @@
                             @empty
                             @endforelse
                         </select>
+                        @error('authors')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                         <a>
-                            <button type="button" class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">New Author</button>
+                            <button type="button"
+                                    class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                New Author
+                            </button>
                         </a>
                     </div>
                 </div>
@@ -77,17 +101,29 @@
                     <input type="text" id="ISBN" name="ISBN"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="1234567891"/>
+                    @error('ISBN')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="publication_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Publication Year</label>
+                    <label for="publication_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Publication
+                        Year</label>
                     <input type="number" id="publication_year" name="publication_year"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="2012"/>
+                    @error('publication_year')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <textarea name="description" id="description" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Book description here"></textarea>
+                        <textarea name="description" id="description" rows="8"
+                                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  placeholder="Book description here"></textarea>
+                        @error('description')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit"

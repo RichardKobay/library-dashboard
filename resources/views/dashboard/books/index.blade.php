@@ -27,3 +27,24 @@
         });
     </script>
 @endif
+
+@if(Session::has('loaned'))
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "Book was available, created a loan instead",
+            icon: "warning"
+        });
+    </script>
+@endif
+
+@if(Session::has('reserved'))
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "Reservation created successfully",
+            icon: "success"
+        });
+    </script>
+@endif
+

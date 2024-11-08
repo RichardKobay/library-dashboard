@@ -1,13 +1,12 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# UPVIBLIOTECA
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Upviblioteca is a library management system capable of be used by librarians and users in general. It has the power to have reservations, loans, modify the books, etc.
+
+Upviblioteca is powered by laravel, so... If you know how to work with laravel 11, you'll know how to maintain this application
 
 ## About Laravel
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -29,38 +28,102 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+# Installation and setup
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+To setup this project, you'll need first have to download the source code from github, and then, clone the repo.
 
-### Premium Partners
+```powershell
+ git clone https://github.com/RichardKobay/library-dashboard.git
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Installing requirements
 
-## Contributing
+After you cloned the repo, you'll need to install all the necessary dependencies, you can do it with this two commands.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```powershell
+npm install && composer install
+```
 
-## Code of Conduct
+> [!WARNING]  
+> You have to install [Node](https://nodejs.org/) and [Composer](https://getcomposer.org/) before try to install the dependencies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Initial project setup
 
-## Security Vulnerabilities
+## Setup `.env`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+First, you'll need to create your `.env` file, you'll have an example at `/.env.example` please use this template.
 
-## License
+Change the app name if you require it, but most important, to the database and mailing setup. Use Mysql and change your user, password and the database name of your preference
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your-database-name-goes-here
+DB_USERNAME=database-username
+DB_PASSWORD=database-password
+```
+
+Now, you can change the mailing configuration.
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=your-username-goes-here
+MAIL_PASSWORD=mail-password-goes-here
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS="your-email-please"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+Keep the `MAIL_MAILER`, `MAIL_HOST`, `MAIL_PORT`, and `AIL_ENCRYPTION` in the same way, at least that you need another configuration
+
+## Making migrations
+
+Once you've cloned the project, you'll need to make the migrations (if you want the project to work)
+
+```powershell
+php artisan migrate
+```
+
+> [!NOTE]
+> If you do not have a schema with the name of your `DB_NAME` variable in your database system, laravel will ask if you want to create it.
+> 
+> If you don't have any schema with that name, say yes, if don't please change your database name or create manually your schema; after that run `php artisan migrate`
+
+And now the project is ready to go, but, what if i need sample data?
+
+## Seeding the database
+
+This project comes with sample data, all you have to do is run
+
+```powershell
+php arisan db:seed
+```
+
+And your database schema will fill with a little sample data, like users, books, loans, etc; all the necessary stuff to keep going on the project
+
+## Run the project
+
+You've finished the initial setup, now let's start by seeing if our project works, you'll need two command lines and run this two commands:
+
+```powershell
+npm run dev
+```
+
+And
+
+```powershell
+php artisan serve
+```
+
+This will automatically start a dev server on `localhost:8000` and you can see your changes there.
+
+---
+
+# Read the docs
+
+Congratulations, you've successfully had done with the setup. If you need more info about the project you can always read the docs.
+
+Our docs are allocated in `resources/markdown/docs` if you need more info about the project

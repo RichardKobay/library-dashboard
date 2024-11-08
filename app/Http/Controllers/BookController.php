@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
@@ -32,7 +33,7 @@ class BookController extends Controller
         return view('dashboard.books.create', compact('authors', 'categories', 'types'));
     }
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
 
         $name = $request->input('name');
@@ -68,7 +69,7 @@ class BookController extends Controller
         return view('dashboard.books.edit', compact('book', 'authors', 'categories', 'types'));
     }
 
-    public function update($id, Request $request)
+    public function update($id, BookRequest $request)
     {
         $book = Book::find($id);
         $name = $request->input('name');

@@ -21,6 +21,9 @@
                             @empty
                             @endforelse
                         </select>
+                        @error('user_id')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                         <a>
                             <button type="button"
                                     class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
@@ -40,6 +43,9 @@
                             @empty
                             @endforelse
                         </select>
+                        @error('book_id')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                         <a>
                             <button type="button"
                                     class="mt-2 py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
@@ -55,9 +61,13 @@
                         <select id="type" name="status"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option value="created">created</option>
+                                <option value="pending">pending</option>
                                 <option value="loaned">loaned</option>
                                 <option value="returned">returned</option>
                         </select>
+                        @error('status')
+                        <p class="text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="mb-5">
@@ -65,12 +75,18 @@
                     <input type="date" id="date" name="date"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="YYYY-MM-DD" required/>
+                    @error('date')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label for="return_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Return date</label>
                     <input type="date" id="return_date" name="return_date"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="YYYY-MM-DD" required/>
+                    @error('return_date')
+                    <p class="text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 <button type="submit"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
